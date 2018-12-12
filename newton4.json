@@ -1,0 +1,139 @@
+{
+    "cluster": [{
+        "id": "test1",
+        "parameters": {
+            "provision": {
+                "contrail_4": {
+                    "controller_config": {
+                        "bgp_asn": "64512",
+                        "external_routers_list": {}
+                    },
+                    "enable_lbaas": true,
+                    "kernel_upgrade": false
+                },
+                "openstack": {
+                    "keystone": {
+                        "admin_password": "contrail"
+                    },
+                    "openstack_manage_amqp": true
+                }
+            }
+        }
+    }],
+    "server": [{
+            "cluster_id": "test1",
+            "domain": "testbed.com",
+            "id": "compute1",
+            "contrail": {
+                "control_data_interface": "eth0"
+            },
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.49.191.254",
+                    "ip_address": "10.49.168.242/20",
+                    "mac_address": "56:68:a6:6b:42:0a",
+                    "name": "eth0"
+                }],
+                "management_interface": "eth0",
+                "provisioning": "kickstart"
+            },
+            "parameters": {
+                "provision": {
+                    "contrail": {
+                        "kernel_upgrade": false
+                    },
+                    "contrail_4": {
+                        "enable_lbaas": true,
+                        "kernel_upgrade": false,
+                        "vgw": {}
+                    }
+                }
+            },
+            "password": "contrail",
+            "ipmi_address": "",
+            "roles": [
+                "contrail-compute"
+            ]
+        },
+        {
+            "cluster_id": "test1",
+            "domain": "testbed.com",
+            "id": "controller",
+            "contrail": {
+                "control_data_interface": "eth0"
+            },
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.49.191.254",
+                    "ip_address": "10.49.168.243/20",
+                    "mac_address": "56:68:a6:6b:42:0b",
+                    "name": "eth0"
+                }],
+                "management_interface": "eth0",
+                "provisioning": "kickstart"
+            },
+            "parameters": {
+                "provision": {
+                    "contrail": {
+                        "kernel_upgrade": false
+                    },
+                    "contrail_4": {
+                        "enable_lbaas": true,
+                        "kernel_upgrade": false,
+                        "vgw": {}
+                    }
+                }
+            },
+            "password": "contrail",
+            "ipmi_address": "",
+            "roles": [
+                "contrail-analytics",
+                "contrail-controller",
+                "openstack",
+                "contrail-analyticsdb"
+            ]
+        },
+        {
+            "cluster_id": "test1",
+            "domain": "testbed.com",
+            "id": "compute2",
+            "contrail": {
+                "control_data_interface": "eth0"
+            },
+            "network": {
+                "interfaces": [{
+                    "default_gateway": "10.49.191.254",
+                    "ip_address": "10.49.164.25/20",
+                    "mac_address": "56:68:a6:6b:42:09",
+                    "name": "eth0"
+                }],
+                "management_interface": "eth0",
+                "provisioning": "kickstart"
+            },
+            "parameters": {
+                "provision": {
+                    "contrail": {
+                        "kernel_upgrade": false
+                    },
+                    "contrail_4": {
+                        "enable_lbaas": true,
+                        "kernel_upgrade": false,
+                        "vgw": {}
+                    }
+                }
+            },
+            "password": "contrail",
+            "ipmi_address": "",
+            "roles": [
+                "contrail-compute"
+            ]
+        }
+    ],
+    "image": [{
+        "category": "package",
+        "id": "newton_1_0_0_8",
+        "path": "/home/musa/contrail-cloud-docker_4.1.0.0-8-newton_xenial.tgz",
+        "type": "contrail-ubuntu-package",
+        "version": "4.1.0.0-8"
+    }]
+}
